@@ -64,9 +64,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Sprect\PlayerContoll.cs" />
-    <None Include="Assets\敵Assets\敵Assets\Hero and Opponents\license.txt" />
+    <None Include="Assets\Char\敵Assets\敵Assets\Hero and Opponents\license.txt" />
     <None Include="Assets\Elemental Potions\Help.txt" />
-    <None Include="Assets\Nature_pixel_art_assets\pixel_snapping_README.txt" />
+    <None Include="Assets\Map\Nature_pixel_art_assets\pixel_snapping_README.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/Users/1816042/PoSuZ/Unity/前期制作/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
