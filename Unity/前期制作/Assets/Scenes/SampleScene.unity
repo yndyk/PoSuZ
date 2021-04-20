@@ -453,7 +453,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1289242754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.841053, y: 2.11, z: 0}
+  m_LocalPosition: {x: -13.83, y: 2.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -500,7 +500,7 @@ MonoBehaviour:
   speed: 0.02
   speedThreshold: 2
   speedForce: 30
-  flap: 2
+  flap: 100
   jumpThreshold: 2
 --- !u!1001 &1508515927
 PrefabInstance:

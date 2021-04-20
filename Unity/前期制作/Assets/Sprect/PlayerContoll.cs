@@ -19,6 +19,7 @@ public class PlayerContoll : MonoBehaviour
  
     bool isGround = true;//地面と接しているか
     int key = 0;//左右の入力管理
+    bool keyFlag = false;
 
     public enum JumpNonber 
     {
@@ -78,33 +79,55 @@ public class PlayerContoll : MonoBehaviour
              */
         }
         GetInputKey();
-        //ChngeState();
+        ChngeState();
         Mode();
        
     }
 
     void GetInputKey() 
     {
-        key = 0;
+        
         float dx = Input.GetAxis("Horizontal")*speed;
         transform.Translate(dx, 0.0f, 0.0f);
-        if (dx <= 0)
+        float ds = 1.0f;
+        if (dx > 0 /*&& key == 1*/)
+        {
+            //key = 1;
+            transform.localScale = new Vector3(ds, 1.0f, 1.0f);
+        }
+        else if(dx < 0 /*&& key == -1*/)
+        {
+            //key = -1;
+            transform.localScale = new Vector3(-ds, 1.0f, 1.0f);
+        }
+        else 
+        {
+            transform.localScale = new Vector3(ds, 1.0f, 1.0f);
+            keyFlag = false;
+            key = 0;
+        }
+        //key = 0;
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             key = 1;
+            keyFlag = true;
         }
-        if (dx > 0)
+        if (Input.GetKeyDown(KeyCode.LeftArrow)) 
         {
             key = -1;
+            keyFlag = true;
         }
-    }
+        Debug.Log(key);
+   }
 
     void ChngeState() 
     {
+        //空中にいるかどうかを判定
         if(Mathf.Abs(rd2D.velocity.y) > jumpThreshold) 
         {
             isGround = false;
         }
-
+        //接地している場合
         if (isGround) 
         {
             if(key != 0)
@@ -125,8 +148,11 @@ public class PlayerContoll : MonoBehaviour
             else if(rd2D.velocity.y < 0) 
             {
                 state = "FALL";
+                keyFlag = false;
             }
         }
+
+        Debug.Log(state);
     }
     
     void Mode ()
@@ -135,16 +161,19 @@ public class PlayerContoll : MonoBehaviour
         //ジャンプ処理
         if (isGround)
         {
-            float dy = Input.GetAxis("Jump")*flap;
-            rd2D.AddForce(Vector2.up * dy);
-            //isGround = false;
-            Debug.Log(isGround);
+            //float dy = Input.GetAxis("Jump") * flap;
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                rd2D.AddForce(Vector2.up * flap);
+                isGround = false;
+                Debug.Log(isGround);
+            }
         }
-
+        //左右の移動一定の速度に達するまでは、Addforce で力を加え、それ以降はtransform.positionを直接書き換えて同一速度で移動する
         float speedX = Mathf.Abs(this.rd2D.velocity.x);
         if (speedX < this.speedThreshold)
         {
-            this.rd2D.AddForce(transform.right*key*this.speedForce*stateEffect);
+            this.rd2D.AddForce(transform.right*key*this.speedForce*stateEffect);//未入力の場合は key の値が0になるため移動しない
         }
         else 
         {
