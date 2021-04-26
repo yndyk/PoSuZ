@@ -63,6 +63,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Demo Oki\Scripts\GroundCheck.cs" />
+    <Compile Include="Assets\Demo Oki\Scripts\Player.cs" />
+    <Compile Include="Assets\Demo Oki\Scripts\player2.cs" />
     <Compile Include="Assets\Sprect\PlayerContoll.cs" />
     <Compile Include="Assets\Sprect\Sandobark.cs" />
     <None Include="Assets\Char\敵Assets\敵Assets\Hero and Opponents\license.txt" />
