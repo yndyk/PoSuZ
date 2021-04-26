@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Sprect\PlayerContoll.cs" />
+    <Compile Include="Assets\Sprect\Sandobark.cs" />
     <None Include="Assets\Char\敵Assets\敵Assets\Hero and Opponents\license.txt" />
     <None Include="Assets\Elemental Potions\Help.txt" />
     <None Include="Assets\Map\Nature_pixel_art_assets\pixel_snapping_README.txt" />

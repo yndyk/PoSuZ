@@ -19,6 +19,7 @@ public class PlayerContoll : MonoBehaviour
  
     bool isGround = true;//地面と接しているか
     int key = 0;//左右の入力管理
+    int attack = 0;//攻撃入力管理
     bool keyFlag = false;
 
     public enum JumpNonber 
@@ -80,8 +81,8 @@ public class PlayerContoll : MonoBehaviour
         }
         GetInputKey();
         ChngeState();
+        ChangeAnimation();
         Mode();
-       
     }
 
     void GetInputKey() 
@@ -90,20 +91,20 @@ public class PlayerContoll : MonoBehaviour
         float dx = Input.GetAxis("Horizontal")*speed;
         transform.Translate(dx, 0.0f, 0.0f);
         float ds = 1.0f;
-        if (dx > 0 /*&& key == 1*/)
+        if (dx > 0 )
         {
             //key = 1;
             transform.localScale = new Vector3(ds, 1.0f, 1.0f);
         }
-        else if(dx < 0 /*&& key == -1*/)
+        else if(dx < 0 )
         {
             //key = -1;
             transform.localScale = new Vector3(-ds, 1.0f, 1.0f);
         }
         else 
         {
-            transform.localScale = new Vector3(ds, 1.0f, 1.0f);
-            keyFlag = false;
+            //transform.localScale = new Vector3(ds, 1.0f, 1.0f);
+            //keyFlag = false;
             key = 0;
         }
         //key = 0;
@@ -117,8 +118,8 @@ public class PlayerContoll : MonoBehaviour
             key = -1;
             keyFlag = true;
         }
-        Debug.Log(key);
-   }
+        //Debug.Log(key);
+    }
 
     void ChngeState() 
     {
@@ -138,6 +139,12 @@ public class PlayerContoll : MonoBehaviour
             {
                 state = "IDLE";
             }
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                state = "ATTACK";
+                GetComponent<BoxCollider2D>().enabled = true;
+            }
+            
         }
         else 
         {
@@ -152,7 +159,44 @@ public class PlayerContoll : MonoBehaviour
             }
         }
 
-        Debug.Log(state);
+       // Debug.Log(state);
+    }
+
+    void ChangeAnimation() 
+    {
+        if(prevState != state) 
+        {
+            switch (state) 
+            {
+                case "JUMP":
+                    animator.SetBool("warposwoik", false);
+                    animator.SetBool("Attack", false);
+                    animator.SetInteger("Jump A ああ", (int)JumpNonber.A);
+                    GetComponent<BoxCollider2D>().enabled = false;
+                    break;
+                case "FALL":
+                    animator.SetBool("warposwoik", false);
+                    animator.SetBool("Attack", false);
+                    animator.SetInteger("Jump A ああ", (int)JumpNonber.C);
+                    GetComponent<BoxCollider2D>().enabled = false;
+                    break;
+                case "RUN":
+                    animator.SetBool("warposwoik", true);
+                    animator.SetBool("Attack", false);
+                    GetComponent<BoxCollider2D>().enabled = false;
+                    break;
+                case "ATTACK":
+                    animator.SetBool("Attack", true);
+                    animator.SetBool("warposwoik", false);
+                    break;
+                default:
+                    animator.SetBool("warposwoik", false);
+                    animator.SetBool("Attack", false);
+                    animator.SetInteger("Jump A ああ", (int)JumpNonber.E);
+                    break;
+            }
+            prevState = state;
+        }
     }
     
     void Mode ()
@@ -166,7 +210,7 @@ public class PlayerContoll : MonoBehaviour
             {
                 rd2D.AddForce(Vector2.up * flap);
                 isGround = false;
-                Debug.Log(isGround);
+                //Debug.Log(isGround);
             }
         }
         //左右の移動一定の速度に達するまでは、Addforce で力を加え、それ以降はtransform.positionを直接書き換えて同一速度で移動する
