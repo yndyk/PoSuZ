@@ -21,7 +21,7 @@ public class PlayerContoll : MonoBehaviour
     int key = 0;//左右の入力管理
     int attack = 0;//攻撃入力管理
     bool keyFlag = false;
-
+    
     public enum JumpNonber 
     {
         A = 0,
@@ -87,7 +87,6 @@ public class PlayerContoll : MonoBehaviour
 
     void GetInputKey() 
     {
-        
         float dx = Input.GetAxis("Horizontal")*speed;
         transform.Translate(dx, 0.0f, 0.0f);
         float ds = 1.0f;
