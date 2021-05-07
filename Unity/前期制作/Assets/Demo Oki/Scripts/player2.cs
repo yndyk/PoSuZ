@@ -140,6 +140,7 @@ public class player2 : MonoBehaviour
                     animator.SetBool("run", true);
                     animator.SetBool("fall", false);
                     animator.SetBool("jump", false);
+                    animator.SetBool("attack", false);
                     break;
                 case "ATTACK1":
                     animator.SetBool("run", false);
@@ -157,7 +158,6 @@ public class player2 : MonoBehaviour
             prevState = state;
         }
     }
-
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
