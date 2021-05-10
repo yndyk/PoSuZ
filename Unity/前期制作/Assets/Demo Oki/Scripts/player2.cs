@@ -15,6 +15,7 @@ public class player2 : MonoBehaviour
     private float x_val;
     private float speed;
     private float jumpup;
+    public bool JumpFlag = false;
     private Animator animator;
     private bool isGround = true;
     private string state;// プレイヤーの状態管理
@@ -32,12 +33,16 @@ public class player2 : MonoBehaviour
     {
         x_val = Input.GetAxis("Horizontal");
 
-      
-        //
-        if (Input.GetKeyDown("space"))
+
+        if (JumpFlag == false)
         {
-            rb2d.AddForce(Vector2.up * jumpPower);
+            if (Input.GetKeyDown("space"))
+            {
+                rb2d.AddForce(Vector2.up * jumpPower);
+                JumpFlag = true;
+            }
         }
+
         jumpup = jumpPower;
         Debug.Log(jumpup);
         ChngeState();
@@ -48,6 +53,7 @@ public class player2 : MonoBehaviour
         Vector3 EP = transform.position - Vector3.up * 0.1f;
         Debug.DrawLine(left_SP, EP);
         Debug.DrawLine(right_SP, EP);
+
     }
 
     private void FixedUpdate()
@@ -167,6 +173,7 @@ public class player2 : MonoBehaviour
             if (!isGround)
             {
                 isGround = true;
+                JumpFlag = false;
             }
         }
 
@@ -176,7 +183,7 @@ public class player2 : MonoBehaviour
             if (!isGround)
             {
                 isGround = true;
-                
+                JumpFlag = false;
             }
         }
         

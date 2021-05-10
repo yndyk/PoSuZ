@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class CameraControll : MonoBehaviour
 {
-    public GameObject target;
-    private Vector3 offset;
+    public GameObject target;//追いかけるターゲット
+    private Vector3 offset;//ターゲットからカメラまでの距離
+
 
     // Start is called before the first frame update
     void Start()
