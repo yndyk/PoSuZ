@@ -33,7 +33,6 @@ public class player2 : MonoBehaviour
     {
         x_val = Input.GetAxis("Horizontal");
 
-
         if (JumpFlag == false)
         {
             if (Input.GetKeyDown("space"))
