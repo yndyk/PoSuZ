@@ -847,6 +847,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5981345699607302133, guid: 2d4a5ddac7afb634bbda3bd1f5acbdbc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6907694281239825640, guid: 2d4a5ddac7afb634bbda3bd1f5acbdbc,
+        type: 3}
+      propertyPath: attackPoint
+      value: 
+      objectReference: {fileID: 1259474896}
+    - target: {fileID: 6907694281239825640, guid: 2d4a5ddac7afb634bbda3bd1f5acbdbc,
+        type: 3}
+      propertyPath: attackRadius
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6907694281239825640, guid: 2d4a5ddac7afb634bbda3bd1f5acbdbc,
+        type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 6907694281239825642, guid: 2d4a5ddac7afb634bbda3bd1f5acbdbc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1179,3 +1199,9 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!4 &1259474896 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5981345699607302133, guid: 2d4a5ddac7afb634bbda3bd1f5acbdbc,
+    type: 3}
+  m_PrefabInstance: {fileID: 800838802}
+  m_PrefabAsset: {fileID: 0}
