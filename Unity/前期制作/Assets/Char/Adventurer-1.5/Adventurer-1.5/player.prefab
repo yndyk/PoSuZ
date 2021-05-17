@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 6907694281239825640}
   - component: {fileID: 6907694281239825623}
   - component: {fileID: 6907694281239825622}
-  - component: {fileID: 6907694281239825621}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -124,6 +123,11 @@ MonoBehaviour:
   inputSpeed: 2
   jumpPower: 400
   jumpThreshold: 2
+  attackPoint: {fileID: 0}
+  attackRadius: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
   JumpFlag: 0
 --- !u!50 &6907694281239825623
 Rigidbody2D:
@@ -162,19 +166,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.00000011920929, y: -0.025683409}
   m_Size: {x: 0.27591676, y: 0.35523862}
   m_Direction: 0
---- !u!114 &6907694281239825621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6907694281239825644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82377658d1623d747a7568d8e007e3a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Object: {fileID: 6907694281420338628}
 --- !u!1 &6907694281420338628
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,9 @@ public class player2 : MonoBehaviour
     [Header("移動速度")] public float inputSpeed;
     [Header("ジャンプ力")] public float jumpPower;
     [Header("ジャンプを中断")]public float jumpThreshold;//ジャンプ中を判断
+    [Header("攻撃ポイント")] public Transform attackPoint;
+    [Header("攻撃範囲")] public float attackRadius;
+    [Header("どれに攻撃するか")] public  LayerMask enemyLayer;
     #endregion
 
     #region//プライベート変数
@@ -46,13 +49,12 @@ public class player2 : MonoBehaviour
         Debug.Log(jumpup);
         ChngeState();
         ChangeAnimation();
-
+        
         Vector3 left_SP = transform.position - Vector3.right * 0.3f;
         Vector3 right_SP = transform.position + Vector3.right * 0.3f;
         Vector3 EP = transform.position - Vector3.up * 0.1f;
         Debug.DrawLine(left_SP, EP);
         Debug.DrawLine(right_SP, EP);
-
     }
 
     private void FixedUpdate()
@@ -78,7 +80,6 @@ public class player2 : MonoBehaviour
             transform.localScale = new Vector3(-3, 3, 3);
             key = -1;
         }
-       
         //キャラクターを移動
         rb2d.velocity = new Vector2(speed, rb2d.velocity.y);
     }
@@ -101,9 +102,11 @@ public class player2 : MonoBehaviour
             {
                 state = "IDLE";
             }
-            if (Input.GetKeyDown("up")) 
+            //攻撃
+            if (Input.GetKeyDown("up"))
             {
                 state = "ATTACK1";
+                Attack();
             }
         }
         else 
@@ -163,6 +166,24 @@ public class player2 : MonoBehaviour
             prevState = state;
         }
     }
+    
+    //攻撃
+    private void Attack()
+    {
+        Debug.Log("攻撃");
+        Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(attackPoint.position,
+                                                            attackRadius,enemyLayer);
+        foreach(Collider2D hitEnemy in hitEnemys) 
+        {
+            Debug.Log(hitEnemy.gameObject.name + "に攻撃");
+        }
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPoint.position,attackRadius);
+    }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
