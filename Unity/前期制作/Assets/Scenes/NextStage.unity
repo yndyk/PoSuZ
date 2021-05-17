@@ -2214,6 +2214,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 7796401315109804776, guid: 2c7548c996528ed419daecdb6afb24db,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7796401315109804771, guid: 2c7548c996528ed419daecdb6afb24db, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2c7548c996528ed419daecdb6afb24db, type: 3}
@@ -2512,7 +2517,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7767584, y: 1}
+    m_SensorSize: {x: 1.3333334, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4097,7 +4102,12 @@ PrefabInstance:
     - target: {fileID: 6907694281239825640, guid: 2d4a5ddac7afb634bbda3bd1f5acbdbc,
         type: 3}
       propertyPath: attackRadius
-      value: 2
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6907694281239825640, guid: 2d4a5ddac7afb634bbda3bd1f5acbdbc,
+        type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 6907694281239825642, guid: 2d4a5ddac7afb634bbda3bd1f5acbdbc,
         type: 3}
@@ -4558,6 +4568,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796401315109804776, guid: 2c7548c996528ed419daecdb6afb24db,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c7548c996528ed419daecdb6afb24db, type: 3}
