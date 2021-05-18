@@ -148,19 +148,19 @@ public class player2 : MonoBehaviour
                     animator.SetBool("run", true);
                     animator.SetBool("fall", false);
                     animator.SetBool("jump", false);
-                    animator.SetBool("attack", false);
+                    //animator.SetBool("attack", false);
                     break;
                 case "ATTACK1":
                     animator.SetBool("run", false);
                     animator.SetBool("fall", false);
                     animator.SetBool("jump", false);
-                    animator.SetBool("attack", true);
+                    //animator.SetBool("attack", true);
                     break;
                 default:
                     animator.SetBool("run", false);
                     animator.SetBool("fall", false);
                     animator.SetBool("jump", false);
-                    animator.SetBool("attack", false);
+                   // animator.SetBool("attack", false);
                     break;
             }
             prevState = state;
@@ -170,6 +170,7 @@ public class player2 : MonoBehaviour
     //攻撃
     private void Attack()
     {
+        animator.SetTrigger("attackTrigger");
         Debug.Log("攻撃");
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(attackPoint.position,
                                                             attackRadius,enemyLayer);
@@ -178,6 +179,7 @@ public class player2 : MonoBehaviour
             Debug.Log(hitEnemy.gameObject.name + "に攻撃");
         }
     }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
