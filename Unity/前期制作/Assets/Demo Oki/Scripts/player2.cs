@@ -103,6 +103,7 @@ public class player2 : MonoBehaviour
         foreach (Collider2D hitEnemy in hitEnemys)
         {
             Debug.Log(hitEnemy.gameObject.name + "に攻撃");
+            hitEnemy.GetComponent<EnemyManager>().OnDamage();
         }
         StartCoroutine("WaitForAttack");
     }
@@ -115,7 +116,8 @@ public class player2 : MonoBehaviour
 
     IEnumerator WaitForAttack() 
     {
-        yield return new WaitForSeconds(0.8f);
+        //攻撃スピードを変える
+        yield return new WaitForSeconds(0.6f);
         AttackFlag = false;
     }
 
