@@ -58,6 +58,8 @@ public class player2 : MonoBehaviour
         Vector3 EP = transform.position - Vector3.up * 0.1f;
         Debug.DrawLine(left_SP, EP);
         Debug.DrawLine(right_SP, EP);
+
+        
     }
 
     private void FixedUpdate()
@@ -190,7 +192,7 @@ public class player2 : MonoBehaviour
             prevState = state;
         }
     }
-    
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         jumpPower = 400;
