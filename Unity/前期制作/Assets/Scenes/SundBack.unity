@@ -773,6 +773,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy05
       objectReference: {fileID: 0}
+    - target: {fileID: 3734824895805587452, guid: ccaeb31228429704fb3ceaf54a29cc37,
+        type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3734824895805587453, guid: ccaeb31228429704fb3ceaf54a29cc37,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3734824895805587453, guid: ccaeb31228429704fb3ceaf54a29cc37,
+        type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3734824895805587454, guid: ccaeb31228429704fb3ceaf54a29cc37,
         type: 3}
       propertyPath: m_LocalPosition.x

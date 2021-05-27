@@ -11,6 +11,7 @@ public class player2 : MonoBehaviour
     [Header("攻撃ポイント")] public Transform attackPoint;
     [Header("攻撃範囲")] public float attackRadius;
     [Header("どれに攻撃するか")] public  LayerMask enemyLayer;
+    [Header("ギミック対象")] public GameObject Gimmck;
     #endregion
 
     #region//プライベート変数
@@ -195,7 +196,7 @@ public class player2 : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        jumpPower = 400;
+        jumpPower = 300;
         if (collision.gameObject.tag == "Ground")
         {
             if (!isGround)
@@ -205,7 +206,7 @@ public class player2 : MonoBehaviour
             }
         }
 
-        if(collision.gameObject.tag == "JumpUp") 
+        if (collision.gameObject.tag == "JumpUp")
         {
             jumpPower = 500;
             if (!isGround)
@@ -214,7 +215,11 @@ public class player2 : MonoBehaviour
                 JumpFlag = false;
             }
         }
-        
+        //ギミック判定
+        if (collision.gameObject.name == "lift")
+        {
+            transform.SetParent(Gimmck.transform);
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -225,6 +230,15 @@ public class player2 : MonoBehaviour
             {
                 isGround = true;
             }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        //ギミック解除
+        if (collision.gameObject.name == "lift")
+        {
+            transform.SetParent(null);
         }
     }
 }
