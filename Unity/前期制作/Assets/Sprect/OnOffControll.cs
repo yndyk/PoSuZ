@@ -14,7 +14,7 @@ public class OnOffControll : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey("up")) 
+        if (Input.GetKey(KeyCode.Q)) 
         {
             Object.SetActive(true);
         }
