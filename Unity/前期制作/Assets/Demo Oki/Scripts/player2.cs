@@ -215,7 +215,7 @@ public class player2 : MonoBehaviour
                 JumpFlag = false;
             }
         }
-        //ギミック判定
+        //ギミック判定(ギミックの子オブジェクトになる)
         if (collision.gameObject.name == "lift")
         {
             transform.SetParent(Gimmck.transform);
