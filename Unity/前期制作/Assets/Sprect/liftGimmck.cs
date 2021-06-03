@@ -12,7 +12,6 @@ public class liftGimmck : MonoBehaviour
         Vector3 p = new Vector3(move, 0, 0);
         transform.Translate(p);
         counter++;
-
         if (counter == 300)
         {
             counter = 0;
