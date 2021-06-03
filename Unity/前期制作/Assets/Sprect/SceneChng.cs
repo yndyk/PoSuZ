@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneChng : MonoBehaviour
 {
-
     public Fade fade;
     public bool fadeFlag;
     public float countTime = 0;
