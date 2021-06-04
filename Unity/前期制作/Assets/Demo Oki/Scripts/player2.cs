@@ -47,7 +47,7 @@ public class player2 : MonoBehaviour
                 JumpFlag = true;
             }
         }
-
+        
         jumpup = jumpPower;
         Debug.Log(jumpup);
         ChngeState();
@@ -59,8 +59,6 @@ public class player2 : MonoBehaviour
         Vector3 EP = transform.position - Vector3.up * 0.1f;
         Debug.DrawLine(left_SP, EP);
         Debug.DrawLine(right_SP, EP);
-
-        
     }
 
     private void FixedUpdate()
