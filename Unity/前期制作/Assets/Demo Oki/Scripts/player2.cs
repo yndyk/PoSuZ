@@ -194,7 +194,7 @@ public class player2 : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        jumpPower = 300;
+        jumpPower = 400;
         if (collision.gameObject.tag == "Ground")
         {
             if (!isGround)
@@ -214,8 +214,9 @@ public class player2 : MonoBehaviour
             }
         }
         //ギミック判定(ギミックの子オブジェクトになる)
-        if (collision.gameObject.name == "lift")
+        if (collision.gameObject.tag == "lift")
         {
+            isGround = true;
             transform.SetParent(Gimmck.transform);
         }
     }
@@ -234,8 +235,9 @@ public class player2 : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         //ギミック解除
-        if (collision.gameObject.name == "lift")
+        if (collision.gameObject.tag == "lift")
         {
+            isGround = true;
             transform.SetParent(null);
         }
     }
