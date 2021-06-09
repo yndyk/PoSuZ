@@ -32,6 +32,7 @@ public class player2 : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent("Animator") as Animator;
+        //Gimmck = GameObject.FindGameObjectsWithTag("lift");
     }
 
     private void Update()
@@ -194,7 +195,7 @@ public class player2 : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        jumpPower = 400;
+        jumpPower = 300;
         if (collision.gameObject.tag == "Ground")
         {
             if (!isGround)
@@ -216,7 +217,8 @@ public class player2 : MonoBehaviour
         //ギミック判定(ギミックの子オブジェクトになる)
         if (collision.gameObject.tag == "lift")
         {
-            isGround = true;
+            //isGround = true;
+            //JumpFlag = false;
             transform.SetParent(Gimmck.transform);
         }
     }
