@@ -217,8 +217,8 @@ public class player2 : MonoBehaviour
         //ギミック判定(ギミックの子オブジェクトになる)
         if (collision.gameObject.tag == "lift")
         {
-            //isGround = true;
-            //JumpFlag = false;
+            isGround = true;
+            JumpFlag = false;
             transform.SetParent(Gimmck.transform);
         }
     }

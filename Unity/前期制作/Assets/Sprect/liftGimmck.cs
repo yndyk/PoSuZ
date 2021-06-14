@@ -7,7 +7,7 @@ public class liftGimmck : MonoBehaviour
 
     public int counter = 0;
     public float move = 0.01f;
-   
+    
 
     private void Update()
     {
@@ -20,4 +20,15 @@ public class liftGimmck : MonoBehaviour
              move *= -1;
          }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        collision.gameObject.transform.SetParent(this.transform);
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        collision.gameObject.transform.SetParent(null);
+    }
+
 }
