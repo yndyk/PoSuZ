@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 74849444}
   - component: {fileID: 74849442}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Goal
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
